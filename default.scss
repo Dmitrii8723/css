@@ -1,0 +1,167 @@
+@mixin breakpoint($point) {
+  @if $point == mobile {
+    @media screen and (min-height: 600px) {
+      @media screen and (min-width: 600px) {
+        @content ;
+      }
+    }
+  } @else if $point == desktop {
+    @media screen and (min-height: 650px) {
+      @media screen and (min-width: 1440px) {
+        @content ;
+      }
+    }
+  }
+}
+
+.banner {
+  position: relative;
+  text-align: center;
+  background: grey;
+
+  @include breakpoint(mobile) {
+    width: 600px;
+    height: 600px;
+
+    .undercenter {
+      top: 62%;
+      width: 400px;
+    }
+  }
+
+  @include breakpoint(desktop) {
+    width: 1440px;
+    height: 650px;
+
+    .undercenter {
+      top: 55%;
+      width: 700px;
+    }
+  }
+}
+
+.centered {
+  position: absolute;
+  top: 46%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font: bold 55px Arial;
+}
+
+.undercenter {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font: 24px Arial;
+}
+
+.underbanner {
+  position: relative;
+  text-align: center;
+  width: 1440px;
+  height: 700px;
+  background-color: #e6e6e6;
+  display: inline-block;
+
+  @include breakpoint(mobile) {
+    width: 600px;
+    height: 1400px;
+
+    @include breakpoint(desktop) {
+      width: 1440px;
+      height: 700px;
+
+      .left {
+        margin-top: 20px;
+        float: left;
+        text-align: center;
+        width: 440px;
+        height: 650px;
+        display: inline-block;
+        margin-left: 20px;
+        border: 1px solid grey;
+
+        .buttonleft {
+          margin-top: 80px;
+          border-radius: 20px;
+          width: 150px;
+          height: 40px;
+          border: 3px solid black;
+        }
+      }
+
+      .middle {
+        margin-top: 20px;
+        margin-left: 495px;
+        text-align: center;
+        width: 440px;
+        height: 650px;
+        border: 1px solid grey;
+
+        .buttonmiddle {
+          margin-top: 110px;
+          border-radius: 20px;
+          width: 150px;
+          height: 40px;
+          border: 3px solid black;
+        }
+
+      }
+
+      .right {
+        margin-top: -605px;
+        margin-left: 470px;
+        text-align: center;
+        width: 440px;
+        height: 650px;
+        border: 1px solid grey;
+      }
+
+      .buttonright {
+        margin-top: 70px;
+        border-radius: 20px;
+        width: 150px;
+        height: 40px;
+        border: 3px solid black;
+      }
+
+      .textleft {
+        margin-top: 40px;
+        width: 350px;
+        font-size: 20px;
+        margin-left: 35px;
+      }
+
+      .textmiddle {
+        margin-top: 40px;
+        width: 320px;
+        font-size: 20px;
+        margin-left: 50px;
+      }
+
+      .textright {
+        margin-top: 40px;
+        width: 320px;
+        font-size: 20px;
+        margin-left: 60px;
+      }
+
+      .imageleft {
+        margin-top: 20px;
+      }
+
+      .imagemiddle {
+        margin-top: 20px;
+      }
+
+      .imageright {
+        margin-top: 20px;
+      }
+
+    }
+  }
+}
+
